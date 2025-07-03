@@ -1,0 +1,300 @@
+#resultWrapper {
+  position: relative;
+  max-width: 700px;
+  margin: 30px auto;
+}
+
+#addNovelWrapper {
+  max-width: 700px;
+  margin: 20px auto 50px;
+  text-align: right;
+}
+
+#addNovelLink {
+  color: #004aad;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#addNovelLink:hover {
+  color: #002060;
+  text-decoration: none;
+}
+
+body {
+  background: #f0f4f8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 0 20px;
+  color: #333;
+}
+h1 {
+  text-align: center;
+  color: #004aad;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+#genreCheckboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  color: #555;
+  transition: color 0.3s;
+  background: white;
+  border-radius: 20px;
+  padding: 8px 20px 8px 30px;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+}
+
+label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+label span::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border: 2px solid #888;
+  border-radius: 50%;
+  background-color: white;
+  box-sizing: border-box;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+label input[type="checkbox"]:checked + span::before {
+  background-color: #004aad;
+  border-color: #004aad;
+}
+
+label input[type="checkbox"]:checked + span {
+  color: #004aad;
+  font-weight: 700;
+}
+
+button#recommendBtn {
+  display: block;
+  margin: 0 auto;
+  background-color: #004aad;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 36px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgb(0 74 173 / 0.4);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+button#recommendBtn:disabled {
+  background-color: #888;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+button#recommendBtn:not(:disabled):hover {
+  background-color: #003080;
+  box-shadow: 0 6px 14px rgb(0 74 173 / 0.6);
+}
+
+#resultWrapper {
+  position: relative;
+}
+
+#result {
+  margin-top: 0;
+  background: white;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
+  font-size: 1.05rem;
+  min-height: 90px;
+  max-height: 300px;      /* 줄거리 길어도 스크롤 */
+  line-height: 1.5;
+  white-space: pre-wrap;  /* 줄바꿈 유지 */
+  overflow-y: auto;       /* 넘치면 스크롤 */
+  overflow-wrap: break-word;
+  text-align: center;
+  transition: opacity 0.5s ease, background-color 0.5s ease;
+  opacity: 1;
+}
+
+.result-highlight {
+  animation: highlightYellow 0.7s ease;
+}
+
+.result-error {
+  animation: highlightRed 0.7s ease;
+}
+
+@keyframes highlightYellow {
+  0% { background-color: #ffff99; }
+  100% { background-color: transparent; }
+}
+
+@keyframes highlightRed {
+  0% { background-color: #ff4d4d; }
+  100% { background-color: transparent; }
+}
+
+/* 복사 버튼 스타일 */
+#copyBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #004aad;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 3px 8px rgb(0 74 173 / 0.5);
+  transition: background-color 0.3s;
+  user-select: none;
+}
+
+#copyBtn:hover {
+  background-color: #003080;
+}
+
+#copyBtn:active {
+  background-color: #002060;
+}
+
+@media (max-width: 480px) {
+  label {
+    padding: 8px 16px 8px 30px;
+    font-size: 0.85rem;
+  }
+
+  button#recommendBtn {
+    width: 100%;
+    padding: 14px 0;
+  }
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  background: #f8f9fa;
+  padding: 30px;
+}
+
+h1 {
+  color: #222;
+  margin-bottom: 20px;
+}
+
+#typeSelector {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+#genreCheckboxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.genre-label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  background: white;
+  border-radius: 20px;
+  padding: 8px 20px 8px 30px;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+  transition: color 0.3s;
+}
+
+.genre-label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.genre-label span::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border: 2px solid #888;
+  border-radius: 50%;
+  background-color: white;
+  transition: 0.3s;
+}
+
+.genre-label input[type="checkbox"]:checked + span::before {
+  background-color: #004aad;
+  border-color: #004aad;
+}
+
+#recommendBtn, #copyBtn {
+  background: #004aad;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#resultWrapper {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#addNovelWrapper {
+  max-width: 700px;
+  margin: 20px auto 50px;
+  text-align: right;
+}
+
+#addNovelLink {
+  color: #004aad;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
